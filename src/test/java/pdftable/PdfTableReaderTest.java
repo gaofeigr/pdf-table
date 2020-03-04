@@ -26,6 +26,7 @@ import java.util.stream.IntStream;
 public class PdfTableReaderTest {
 
     private static final Path TEST_OUT_PATH = Paths.get("C:", "pdf_tests");
+//    private static final String TEST_FILENAME = "test_tables.pdf";
     private static final String TEST_FILENAME = "test_tables.pdf";
     private static PDDocument PDFdoc;
     private static final int THREAD_COUNT = 8;
@@ -68,7 +69,7 @@ public class PdfTableReaderTest {
     @Test
     public void savePdfPageAsPNG() throws IOException {
         PdfTableReader reader = new PdfTableReader();
-        reader.savePdfPageAsPNG(PDFdoc, 4, TEST_OUT_PATH);
+        reader.savePdfPageAsPNG(PDFdoc, 1, TEST_OUT_PATH);
     }
 
     @Test
@@ -123,7 +124,8 @@ public class PdfTableReaderTest {
     public void singleThreadedSavePdfTablePageDebugImage() throws IOException {
         long start = System.currentTimeMillis();
         PdfTableReader reader = new PdfTableReader();
-        reader.savePdfTablePagesDebugImages(PDFdoc, 1, PDFdoc.getNumberOfPages(), TEST_OUT_PATH);
+//        reader.savePdfTablePagesDebugImages(PDFdoc, 1, PDFdoc.getNumberOfPages(), TEST_OUT_PATH);
+        reader.savePdfTablePagesDebugImages(PDFdoc, 1, 1, TEST_OUT_PATH);
         long end = System.currentTimeMillis();
         System.out.println("save debug images - single thread: " + (end - start) / 1000.0);
     }

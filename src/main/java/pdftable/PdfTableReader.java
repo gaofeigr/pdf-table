@@ -29,7 +29,8 @@ public class PdfTableReader {
     private PdfTableSettings settings;
 
     static {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        System.load(System.getProperty("user.dir") + "\\opencv_java341.dll");
     }
 
     public PdfTableReader(PdfTableSettings settings) {

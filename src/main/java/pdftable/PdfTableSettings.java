@@ -28,14 +28,14 @@ public class PdfTableSettings {
         // CANNY FILTER SETTINGS
         private double cannyThreshold1 = 50;
         private double cannyThreshold2 = 200;
-        private int cannyApertureSize = 3;
+        private int cannyApertureSize = 5;
         private boolean cannyL2Gradient = false;
 
         // BOUNDING RECT PARAMS
         private double approxDistScaleFactor = 0.02;
 
         // DEBUG IMAGES PARAMS
-        private boolean debugImages = false;
+        private boolean debugImages = true;
         private Path debugFileOutputDir;
         private String debugFilename;
 

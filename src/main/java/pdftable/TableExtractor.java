@@ -1,5 +1,6 @@
 package pdftable;
 
+import org.bytedeco.javacpp.opencv_core;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -85,6 +86,7 @@ class TableExtractor {
             findContours(xored, contours2, new Mat(), RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
         }
 
+
         // draw contour #2
         if (settings.hasDebugImages()) {
             Mat contourMask2 = inImage.clone();
@@ -100,7 +102,9 @@ class TableExtractor {
             Imgproc.approxPolyDP(contour2f, approxCurve, approxDistance, true);
             MatOfPoint points = new MatOfPoint(approxCurve.toArray());
             Rect rect = Imgproc.boundingRect(points);
-            out.add(rect);
+            if (rect.width > 10) {
+                out.add(rect);
+            }
         }
 
         Collections.reverse(out);
